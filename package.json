@@ -1,6 +1,6 @@
 {
   "name": "vq-core",
-  "version": "0.0.27",
+  "version": "0.0.30",
   "license": "none",
   "files": [
     "dist"

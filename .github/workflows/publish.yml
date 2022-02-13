@@ -7,29 +7,34 @@ on:
     branches: [main]
 
 jobs:
-  publish-npm:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.24.3
+    strategy:
+      matrix:
+        node-version: [16]
+
+    steps:
+      - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org/
-          cache: "pnpm"
+          registry-url: 'https://registry.npmjs.org'
 
-      - run: pnpm install
+      - name: Use cached node_modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/package-lock.json') }}-${{ matrix.node-version }}
+          restore-keys: |
+            nodeModules-
 
-      - run: npm publish --access public
+
+      - name: Publish
+        run: pnpm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          NODE_OPTIONS: '--max-old-space-size=6144'
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

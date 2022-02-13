@@ -1,0 +1,27 @@
+{
+  "name": "vq-core",
+  "version": "0.0.25",
+  "license": "none",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "build-force": "vite build && tsc --emitDeclarationOnly",
+    "serve": "vite preview"
+  },
+  "main": "./dist/vq-core.umd.js",
+  "module": "./dist/vq-core.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vq-core.es.js",
+      "require": "./dist/vq-core.umd.js"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "vite": "latest"
+  }
+}

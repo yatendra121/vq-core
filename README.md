@@ -1,0 +1,4 @@
+# vite-lib-core
+
+
+ok

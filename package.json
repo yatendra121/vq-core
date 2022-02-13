@@ -1,0 +1,31 @@
+{
+  "name": "vq-core",
+  "version": "0.0.30",
+  "license": "none",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yatendra121/vq-core.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "build-force": "vite build && tsc --emitDeclarationOnly",
+    "serve": "vite preview"
+  },
+  "main": "./dist/vq-core.umd.js",
+  "module": "./dist/vq-core.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vq-core.es.js",
+      "require": "./dist/vq-core.umd.js"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5",
+    "vite": "latest"
+  }
+}

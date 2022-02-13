@@ -1,4 +1,2 @@
-# vite-lib-core
 
-
-ok
+# vq-core

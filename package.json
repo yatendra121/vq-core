@@ -1,6 +1,6 @@
 {
   "name": "vq-core",
-  "version": "0.0.30",
+  "version": "0.0.32",
   "license": "none",
   "files": [
     "dist"
@@ -20,7 +20,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vq-core.es.js",
+      "import": "./src/main.ts",
       "require": "./dist/vq-core.umd.js"
     }
   },

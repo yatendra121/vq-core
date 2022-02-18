@@ -8,7 +8,8 @@ app.innerHTML = `
 
 const alertMessage = (message: string) => {
   alert(message);
+  alert("nocscnsdjcjsav jfjerraegagnruan");
 };
 
-console.log('ok')
+console.log("ok");
 export { alertMessage };
